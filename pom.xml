@@ -166,6 +166,7 @@
     <module>xchange-paribu</module>
     <module>xchange-paymium</module>
     <module>xchange-poloniex</module>
+    <module>xchange-poloniex2</module>
     <module>xchange-quoine</module>
     <module>xchange-ripple</module>
     <module>xchange-serum</module>

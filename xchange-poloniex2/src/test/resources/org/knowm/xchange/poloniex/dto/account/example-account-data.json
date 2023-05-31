@@ -1,0 +1,26 @@
+[
+  {
+    "accountId": "123",
+    "accountType": "SPOT",
+    "balances": [
+      {
+        "currencyId": "60001",
+        "currency": "TRX",
+        "available": "93640.421767943475",
+        "hold": "19.84382885"
+      },
+      {
+        "currencyId": "60002",
+        "currency": "ELON",
+        "available": "100037.9449",
+        "hold": "0.00"
+      },
+      {
+        "currencyId": "60003",
+        "currency": "USDC",
+        "available": "78086.768609427831705",
+        "hold": "22577.045"
+      }
+    ]
+  }
+]

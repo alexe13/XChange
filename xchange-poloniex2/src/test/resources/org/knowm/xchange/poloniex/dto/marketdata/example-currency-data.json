@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "coin": "1CR",
+    "delisted": true,
+    "tradeEnable": false,
+    "name": "1CRedit",
+    "networkList": [
+      {
+        "id": 1,
+        "coin": "1CR",
+        "name": "1CRedit",
+        "currencyType": "address",
+        "blockchain": "1CR",
+        "withdrawalEnable": false,
+        "depositEnable": false,
+        "depositAddress": null,
+        "withdrawMin": null,
+        "decimals": 8,
+        "withdrawFee": "0.01000000",
+        "minConfirm": 10000
+      }
+    ]
+  },
+  {
+    "id": 446,
+    "coin": "AAVE",
+    "delisted": false,
+    "tradeEnable": true,
+    "name": "Aave",
+    "networkList": [
+      {
+        "id": 446,
+        "coin": "AAVE",
+        "name": "Ethereum",
+        "currencyType": "address",
+        "blockchain": "ETH",
+        "withdrawalEnable": true,
+        "depositEnable": true,
+        "depositAddress": null,
+        "withdrawMin": null,
+        "decimals": 18,
+        "withdrawFee": "0.22553338",
+        "minConfirm": 12
+      }
+    ],
+    "supportCollateral": false,
+    "supportBorrow": false
+  }
+]

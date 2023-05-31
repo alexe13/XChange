@@ -1,0 +1,42 @@
+[
+  {
+    "symbol": "BTC_USDT",
+    "open": "30338.34",
+    "low": "30308.14",
+    "high": "32338.91",
+    "close": "30938.56",
+    "quantity": "0.1",
+    "amount": "0",
+    "tradeCount": 1,
+    "startTime": 1648995780000,
+    "closeTime": 1649082121008,
+    "displayName": "BTC/USDT",
+    "dailyChange": "0.0198",
+    "bid": "30338.34",
+    "bidQuantity": "0.01",
+    "ask": "30338.35",
+    "askQuantity": "0.01",
+    "ts": 1649082180190,
+    "markPrice": "30938.57"
+  },
+  {
+    "symbol": "ETH_USDT",
+    "open": "1817.69",
+    "low": "1723.50",
+    "high": "1897.12",
+    "close": "1723.50",
+    "quantity": "2",
+    "amount": "0",
+    "tradeCount": 5,
+    "startTime": 1648995780000,
+    "closeTime": 1649082121009,
+    "displayName": "ETH/USDT",
+    "dailyChange": "-0.0052",
+    "bid": "1817.70",
+    "bidQuantity": "0.01",
+    "ask": "1817.71",
+    "askQuantity": "0.01",
+    "ts": 1649082180190,
+    "markPrice": "1723.51"
+  }
+]

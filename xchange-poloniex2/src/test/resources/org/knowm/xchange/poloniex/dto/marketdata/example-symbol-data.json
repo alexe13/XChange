@@ -1,0 +1,48 @@
+[
+  {
+    "symbol": "BTC_USDT",
+    "baseCurrencyName": "BTC",
+    "quoteCurrencyName": "USDT",
+    "displayName": "BTC/USDT",
+    "state": "NORMAL",
+    "visibleStartTime": 1659018819512,
+    "tradableStartTime": 1659018819512,
+    "symbolTradeLimit": {
+      "symbol": "BTC_USDT",
+      "priceScale": 2,
+      "quantityScale": 6,
+      "amountScale": 2,
+      "minQuantity": "0.000001",
+      "minAmount": "1",
+      "highestBid": "0",
+      "lowestAsk": "0"
+    },
+    "crossMargin": {
+      "supportCrossMargin": true,
+      "maxLeverage": 3
+    }
+  },
+  {
+    "symbol": "ETH_USDT",
+    "baseCurrencyName": "ETH",
+    "quoteCurrencyName": "USDT",
+    "displayName": "ETH/USDT",
+    "state": "NORMAL",
+    "visibleStartTime": 1659018820007,
+    "tradableStartTime": 1659018820007,
+    "symbolTradeLimit": {
+      "symbol": "ETH_USDT",
+      "priceScale": 2,
+      "quantityScale": 6,
+      "amountScale": 2,
+      "minQuantity": "0.000001",
+      "minAmount": "1",
+      "highestBid": "0",
+      "lowestAsk": "0"
+    },
+    "crossMargin": {
+      "supportCrossMargin": true,
+      "maxLeverage": 3
+    }
+  }
+]
