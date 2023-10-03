@@ -16,8 +16,12 @@ import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexSymbolInfo;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexSymbolState;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexSymbolTradeLimit;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexTicker;
+import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexTrade;
+import org.knowm.xchange.poloniex2.dto.marketdata.TradeSide;
 
 public class PoloniexMarketDataJSONTest {
+
+  private final ObjectMapper mapper = new ObjectMapper();
 
   @Test
   public void testSymbolsUnmarshal() throws IOException {
@@ -25,7 +29,6 @@ public class PoloniexMarketDataJSONTest {
         this.getClass().getResourceAsStream(
             "/org/knowm/xchange/poloniex/dto/marketdata/example-symbol-data.json");
 
-    ObjectMapper mapper = new ObjectMapper();
     List<PoloniexSymbolInfo> symbols = mapper.readValue(is,
         mapper.getTypeFactory().constructCollectionType(List.class, PoloniexSymbolInfo.class)
     );
@@ -94,7 +97,6 @@ public class PoloniexMarketDataJSONTest {
     InputStream is =
         this.getClass().getResourceAsStream(
             "/org/knowm/xchange/poloniex/dto/marketdata/example-currency-data.json");
-    ObjectMapper mapper = new ObjectMapper();
     List<PoloniexCurrencyInfo> currencies = mapper.readValue(is,
         mapper.getTypeFactory().constructCollectionType(List.class, PoloniexCurrencyInfo.class)
     );
@@ -156,7 +158,6 @@ public class PoloniexMarketDataJSONTest {
         this.getClass().getResourceAsStream(
             "/org/knowm/xchange/poloniex/dto/marketdata/example-ticker-data.json");
 
-    ObjectMapper mapper = new ObjectMapper();
     List<PoloniexTicker> symbols = mapper.readValue(is,
         mapper.getTypeFactory().constructCollectionType(List.class, PoloniexTicker.class)
     );
@@ -204,5 +205,27 @@ public class PoloniexMarketDataJSONTest {
                 .build()
         );
 
+  }
+
+  @Test
+  public void testTradesUnmarshal() throws IOException {
+    InputStream is =
+        this.getClass().getResourceAsStream(
+            "/org/knowm/xchange/poloniex/dto/marketdata/example-trades-data.json");
+
+    List<PoloniexTrade> trades = mapper.readValue(is,
+        mapper.getTypeFactory().constructCollectionType(List.class, PoloniexTrade.class)
+    );
+    Assertions.assertThat(trades).singleElement()
+        .isEqualTo(PoloniexTrade.builder()
+            .id("194")
+            .price("1.9")
+            .quantity("110")
+            .amount("209.00")
+            .takerSide(TradeSide.SELL)
+            .ts(1648690080545L)
+            .createTime(1648634905695L)
+            .build()
+        );
   }
 }

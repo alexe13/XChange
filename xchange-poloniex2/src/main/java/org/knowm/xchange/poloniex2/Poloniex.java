@@ -9,6 +9,7 @@ import java.util.List;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexCurrencyInfo;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexSymbolInfo;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexTicker;
+import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexTrade;
 
 @Path("")
 @Produces(MediaType.APPLICATION_JSON)
@@ -37,4 +38,8 @@ public interface Poloniex {
   @GET
   @Path("/markets/{symbol}/ticker24h")
   PoloniexTicker ticker(@PathParam("symbol") String symbol);
+
+  @GET
+  @Path("/markets/{symbol}/trades")
+  List<PoloniexTrade> trades(@PathParam("symbol") String symbol);
 }

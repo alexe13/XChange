@@ -9,6 +9,7 @@ import org.knowm.xchange.poloniex2.PoloniexExchange;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexCurrencyInfo;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexSymbolInfo;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexTicker;
+import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexTrade;
 
 public class PoloniexMarketDataServiceRaw extends PoloniexBaseService {
 
@@ -41,6 +42,13 @@ public class PoloniexMarketDataServiceRaw extends PoloniexBaseService {
   public PoloniexTicker ticker(String symbol) throws IOException {
     return decorateApiCall(() -> poloniex.ticker(symbol))
         .withRetry(retry("ticker"))
+        .withRateLimiter(rateLimiter(PUBLIC_HEAVY_REQUEST_LIMITER))
+        .call();
+  }
+
+  public List<PoloniexTrade> trades(String symbol) throws IOException {
+    return decorateApiCall(() -> poloniex.trades(symbol))
+        .withRetry(retry("trades"))
         .withRateLimiter(rateLimiter(PUBLIC_HEAVY_REQUEST_LIMITER))
         .call();
   }

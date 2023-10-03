@@ -16,6 +16,8 @@ import org.knowm.xchange.dto.account.AccountInfo;
 import org.knowm.xchange.dto.account.Balance;
 import org.knowm.xchange.dto.account.Wallet;
 import org.knowm.xchange.dto.marketdata.Ticker;
+import org.knowm.xchange.dto.marketdata.Trade;
+import org.knowm.xchange.dto.marketdata.Trades;
 import org.knowm.xchange.dto.meta.CurrencyMetaData;
 import org.knowm.xchange.dto.meta.ExchangeMetaData;
 import org.knowm.xchange.dto.meta.InstrumentMetaData;
@@ -27,6 +29,7 @@ import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexCurrencyInfo;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexCurrencyNetworkInfo;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexSymbolInfo;
 import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexTicker;
+import org.knowm.xchange.poloniex2.dto.marketdata.PoloniexTrade;
 
 @UtilityClass
 public class PoloniexAdapters {
@@ -135,6 +138,24 @@ public class PoloniexAdapters {
         .bidSize(poloniexTicker.getBidQuantity())
         .askSize(poloniexTicker.getAskQuantity())
         .percentageChange(poloniexTicker.getDailyChange())
+        .build();
+  }
+
+  public static Trades adaptPoloniexTrades(List<PoloniexTrade> trades, Instrument instrument) {
+    return new Trades(
+        trades.stream()
+            .map(poloTrade -> toTrade(poloTrade, instrument))
+            .collect(Collectors.toList())
+    );
+  }
+
+  private static Trade toTrade(PoloniexTrade poloniexTrade, Instrument instrument) {
+    return new Trade.Builder().id(poloniexTrade.getId())
+        .price(new BigDecimal(poloniexTrade.getPrice()))
+        .originalAmount(new BigDecimal(poloniexTrade.getAmount()))
+        .timestamp(new Date(poloniexTrade.getTs()))
+        .instrument(instrument)
+        .type(PoloniexUtils.getType(poloniexTrade.getTakerSide()))
         .build();
   }
 }
