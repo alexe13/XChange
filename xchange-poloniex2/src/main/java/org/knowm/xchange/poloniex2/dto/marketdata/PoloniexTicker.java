@@ -2,7 +2,6 @@ package org.knowm.xchange.poloniex2.dto.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
-import java.time.Instant;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
@@ -33,14 +32,14 @@ public class PoloniexTicker {
   @JsonProperty("amount")
   BigDecimal amount;
 
-  @JsonProperty("amount")
+  @JsonProperty("tradeCount")
   Integer tradeCount;
 
   @JsonProperty("startTime")
-  Instant startTime;
+  Long startTime;
 
   @JsonProperty("closeTime")
-  Instant closeTime;
+  Long closeTime;
 
   @JsonProperty("displayName")
   String displayName;
@@ -61,7 +60,7 @@ public class PoloniexTicker {
   BigDecimal askQuantity;
 
   @JsonProperty("ts")
-  Instant ts;
+  Long ts;
 
   @JsonProperty("markPrice")
   BigDecimal markPrice;

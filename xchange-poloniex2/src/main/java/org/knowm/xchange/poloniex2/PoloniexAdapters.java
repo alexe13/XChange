@@ -134,7 +134,7 @@ public class PoloniexAdapters {
         .low(poloniexTicker.getLow())
         .volume(poloniexTicker.getQuantity())
         .quoteVolume(poloniexTicker.getAmount())
-        .timestamp(Date.from(poloniexTicker.getTs()))
+        .timestamp(new Date(poloniexTicker.getTs()))
         .bidSize(poloniexTicker.getBidQuantity())
         .askSize(poloniexTicker.getAskQuantity())
         .percentageChange(poloniexTicker.getDailyChange())
